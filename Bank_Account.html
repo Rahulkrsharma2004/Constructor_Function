@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANK ACCOUNT</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    
+function BankAccount(accountNumber,name,type,balance,isActive){
+
+this.accountNumber = accountNumber;
+this.name = name;
+this.type = type;
+this.balance = balance;
+this.isActive = isActive;
+
+this.deposit = function(amount){
+    this.balance += amount;
+    console.log(`Your updated balance :  ${this.balance}`);
+
+    let body = document.querySelector('body')
+
+    let h1 = document.createElement('h1')
+    h1.innerText = `Your updated balance is : ${this.balance}`
+
+    body.appendChild(h1)
+}
+
+this.withdrawal = function(amount){
+    if(this.balance >= amount){
+        this.balance -= amount
+        console.log(`Your updated balance :  ${this.balance}`);
+
+        let body = document.querySelector('body')
+
+        let h1 = document.createElement('h1')
+        h1.innerText = `Your updated balance :  ${this.balance}`
+        body.appendChild(h1)
+
+    }
+    else{
+        console.log("Insufficent balance")
+    }
+}
+
+this.checkBalance = function(amount){
+    this.balance
+    console.log(`Your balance is : ${this.balance}`)
+
+    let body = document.querySelector('body')
+
+    let h1 = document.createElement('h1')
+    h1.innerText = `Your balance is :  ${this.balance}`
+    body.appendChild(h1)
+}
+
+this.isActive = function(amount){
+    if(this.balance>0){
+        console.log("Your bank account is Active")
+    }
+    else{
+        console.log("Your bank acccount is inActive")
+    }
+}
+
+// this.getTotalBalance = function(amount){
+//     this.balance = account1.balance + account2.balance
+//     console.log(`your total balance is : ${this.balance}`)
+
+// }
+
+
+
+
+}
+
+let account1 = new BankAccount(32452345,"rahul","Savings",2000,true);
+
+let account2 = new BankAccount(99452345,"sandip","Savings",5000,false);
+
+account1.deposit(3000)
+// account2.deposit(1000)
+// account1.withdrawal(4000)
+account2.withdrawal(8000)
+account1.isActive()
+account1.checkBalance()
+account1.withdrawal(500)
+account1.checkBalance()
+account2.checkBalance()
+
+
+
+</script>
+</html>
