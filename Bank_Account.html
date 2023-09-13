@@ -68,15 +68,6 @@ this.isActive = function(amount){
     }
 }
 
-// this.getTotalBalance = function(amount){
-//     this.balance = account1.balance + account2.balance
-//     console.log(`your total balance is : ${this.balance}`)
-
-// }
-
-
-
-
 }
 
 let account1 = new BankAccount(32452345,"rahul","Savings",2000,true);
@@ -92,6 +83,23 @@ account1.checkBalance()
 account1.withdrawal(500)
 account1.checkBalance()
 account2.checkBalance()
+account2.deposit(500)
+account1.withdrawal(1000)
+
+
+function getTotalBalance(account1, account2) {
+  return account1.balance + account2.balance;
+}
+
+let totalBalance = getTotalBalance(account1, account2);
+console.log(`All Active Bank Total Balance: ${totalBalance}`);
+
+        let body = document.querySelector('body')
+
+        let h1 = document.createElement('h1')
+        h1.innerText = `All Active Bank Total Balance: ${totalBalance}`
+        body.appendChild(h1)
+
 
 
 
