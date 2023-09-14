@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLINE BOOK STORE</title>
+</head>
+<body>
+    <form id="authorData">
+        <input id="authorName" type="text" placeholder="Enter Your Name">
+        <input id="authorDOB" type="date" placeholder="Enter Date Of Birth">
+        <input id="authorNation" type="text" placeholder="Enter Nationality">
+        <input type="submit">
+    </form>
+
+    <hr>
+
+    <form action="" id="bookData">
+    <input id="bookName" type="text" placeholder="Enter Book Title">
+    <input id="bookGener" type="text" placeholder="Enter book Gener">
+    <input id="bookPrice" type="text" placeholder="Enter Book Price">
+    <input type="submit">
+    </form>
+    
+</body>
+<script>
+    function Author(name,dob,nation){
+        this.name = name;
+        this.dob = dob;
+        this.nation = nation;
+    }
+
+    function Book(title,author,gener,price){
+        this.title = title;
+        this.author = author;
+        this.gener = gener;
+        this.price = price;
+    }
+
+    let myForm = document.querySelector("#authorData");
+
+
+    let data = []
+    let BookData = []
+    myForm.addEventListener("submit",function(e){
+       e.preventDefault();
+       let authorName = document.getElementById("authorName").value;
+       let authorDOB = document.getElementById("authorDOB").value;
+       let authorNation = document.getElementById("authorNation").value;
+
+       let author1 = new Author(authorName,authorDOB,authorNation)
+
+       data.push(author1);
+       console.log(data);
+       myForm.reset();
+    })
+
+    let bookData = document.querySelector("#bookData")
+
+    bookData.addEventListener("submit",function(e){
+        e.preventDefault();
+
+        let bookName = document.getElementById("bookName").value
+        let bookGener = document.getElementById("bookGener").value
+        let bookPrice = document.getElementById("bookPrice").value
+
+       let book = new Book(bookName,data[0],bookGener,bookPrice)
+       BookData.push(book)
+       console.log(BookData)
+
+
+    })
+    BookData.push(data)
+
+
+</script>
+</html>
